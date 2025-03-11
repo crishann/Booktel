@@ -27,6 +27,10 @@
             color: black;
             font-weight: bold;
         }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
     </style>
 </head>
 <body>
@@ -39,7 +43,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
                         </li>
@@ -53,7 +57,6 @@
                             <a class="nav-link" asp-area="" asp-page="/Contact">Contact Us</a>
                         </li>
                     </ul>
-                    <a class="btn btn-custom" asp-area="" asp-page="/Login">Login</a>
                 </div>
             </div>
         </nav>
