@@ -75,6 +75,23 @@ namespace Booktel.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
+
+            [Required]
+            [StringLength(100,ErrorMessage ="Error 100 characters are only allowed")]
+            [Display(Name = "FirstName")]
+            public string FirstName { get; set; }
+
+            [Required]
+            [StringLength(100, ErrorMessage = "Error 100 characters are only allowed")]
+            [Display(Name = "LastName")]
+            public string LastName { get; set; }
+
+            [Required]
+            [StringLength(11, ErrorMessage = "Error 11 characters are only allowed")]
+            [Display(Name = "PhoneNumber")]
+
+            public string PhoneNumber { get; set; }
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -111,12 +128,21 @@ namespace Booktel.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
             if (ModelState.IsValid)
             {
-                var user = CreateUser();
+                var user = new BooktelUser
+                {
+                    UserName = Input.Email,
+                    Email = Input.Email,
+                    FirstName = Input.FirstName,  // Assign FirstName
+                    LastName = Input.LastName,    // Assign LastName
+                    PhoneNumber = Input.PhoneNumber // Assign PhoneNumber
+                };
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
@@ -145,6 +171,7 @@ namespace Booktel.Areas.Identity.Pages.Account
                         return LocalRedirect(returnUrl);
                     }
                 }
+
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
@@ -154,6 +181,7 @@ namespace Booktel.Areas.Identity.Pages.Account
             // If we got this far, something failed, redisplay form
             return Page();
         }
+
 
         private BooktelUser CreateUser()
         {
