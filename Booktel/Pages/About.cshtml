@@ -18,7 +18,7 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
-            color: white;
+            color: #333;
         }
 
         /* Navbar Styling */
@@ -29,6 +29,14 @@
         .navbar-brand {
             font-size: 1.5rem;
         }
+
+        .nav-link {
+            color: white !important;
+        }
+
+            .nav-link.active, .nav-link:hover {
+                color: #ffc107 !important;
+            }
 
         /* Hero Section */
         .hero-section {
@@ -63,7 +71,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background: #06183B;
+            background: rgba(255, 255, 255, 0.95);
             padding: 20px;
             border-top: 3px solid #06183B;
             box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
@@ -82,19 +90,40 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Reservation</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">About</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Reservation</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                     <partial name="_LoginPartial" />
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- About Section -->
+    <div class="container mt-5">
+        <h1 class="text-center fw-bold">About BookTel</h1>
+        <p class="text-center">Welcome to <strong>BookTel</strong>, your ultimate hotel reservation platform designed to make booking seamless, convenient, and stress-free.</p>
+
+        <h3 class="mt-4">Our Mission</h3>
+        <p>At BookTel, our mission is to simplify the booking process by providing an intuitive platform that offers a wide selection of hotels, transparent pricing, and secure reservations. We strive to deliver a hassle-free experience, ensuring that every guest enjoys comfort and convenience from the moment they book their stay.</p>
+
+        <h3 class="mt-4">Why Choose BookTel?</h3>
+        <ul>
+            <li><strong>Easy Booking Process</strong> – Our user-friendly platform allows you to find and reserve the perfect room in just a few clicks.</li>
+            <li><strong>Best Price Guarantee</strong> – We offer competitive rates, ensuring you get the best value for your money.</li>
+            <li><strong>Wide Selection</strong> – From budget-friendly hotels to luxury resorts, we provide a variety of options to suit your needs.</li>
+            <li><strong>Secure Transactions</strong> – Your privacy and security are our top priorities, ensuring safe and seamless transactions.</li>
+            <li><strong>24/7 Customer Support</strong> – Our dedicated support team is available around the clock to assist with your inquiries and reservations.</li>
+        </ul>
+
+        <h3 class="mt-4">Our Commitment</h3>
+        <p>BookTel is committed to providing an exceptional booking experience by continuously improving our services and expanding our network of trusted hotel partners. We believe in making travel easier, allowing you to focus on creating memorable experiences while we handle your accommodation needs.</p>
     </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 
 
